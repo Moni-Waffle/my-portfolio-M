@@ -5,10 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Moni's portfolio</title>
+    <style>
+      .bg-image{
+        background-image: url("./image/monisha\ 1.jpeg");
+        height: 100vh;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+      }
+    </style>
   </head>
   <body>
-    <nav class="p-7 flex items-center justify-center shadow-md">
-      <ul class="flex  gap-15 list-none font-semibold">
+    <nav class="p-7 flex items-center justify-center shadow-md bg-transparent fixed w-full">
+      <ul class="flex  gap-15 list-none font-semibold text-purple-200">
         <li><a href="">Home</a></li>
         <li><a href="">Services</a></li>
         <li><a href="">About</a></li>
@@ -16,5 +25,13 @@
         <li><a href="">Contact</a></li>
       </ul>
     </nav>
+
+    <header class="bg-image flex items-center justify-center flex-col ">
+      <div>
+        <h1 class="text text-7xl text-purple-200">HELLO I'M</h1>
+        <H1 class="text-7xl font-bold text-purple-800">MONISHA CHAKMA</H1>
+        <P class="text-2xl text-white">This is my resume</P>
+      </div>
+    </header>
   </body>
 </html>
