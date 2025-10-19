@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monisha - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        
+        .accent-color {
+            color: #b8a8ff;
+        }
+        
+        .accent-bg {
+            background-color: #b8a8ff;
+        }
+        
+        .hero-section {
+           background: linear-gradient(135deg, #2a2a2aa4 0%, #1a1a1abb 100%), url("./image/monisha 1.jpeg");
+            padding: 80px 20px;
+            text-align: center;
+            height: 100vh;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .hero-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 30px;
+            border: 3px solid #b8a8ff;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .portfolio-item {
+            background: #2a2a2a;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(184, 168, 255, 0.2);
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .portfolio-item-content {
+            padding: 20px;
+        }
+        
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .section-title .accent-color {
+            display: inline;
+        }
+        
+        .resume-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .resume-item {
+            background: #2a2a2a;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #b8a8ff;
+        }
+        
+        .resume-item h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #b8a8ff;
+        }
+        
+        .resume-item p {
+            font-size: 14px;
+            color: #999;
+            line-height: 1.6;
+        }
+        
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .about-image {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .about-content h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .about-content p {
+            color: #999;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: #b8a8ff;
+            color: #1a1a1a;
+        }
+        
+        .btn-primary:hover {
+            background-color: #a896ff;
+        }
+        
+        .btn-secondary {
+            background-color: #3a3a3a;
+            color: #b8a8ff;
+            border: 2px solid #b8a8ff;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #4a4a4a;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-card {
+            background: #2a2a2a;
+            padding: 30px;
+            border-radius: 8px;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #b8a8ff;
+            flex-shrink: 0;
+        }
+        
+        .testimonial-content p {
+            color: #999;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: #b8a8ff;
+            font-size: 14px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background: #2a2a2a;
+            padding: 40px 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: #b8a8ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+        }
+        
+        .service-card h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #b8a8ff;
+        }
+        
+        .service-card p {
+            color: #999;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .blog-card {
+            background: #2a2a2a;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .blog-content {
+            padding: 25px;
+        }
+        
+        .blog-content h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #b8a8ff;
+        }
+        
+        .blog-content p {
+            color: #999;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        
+        .contact-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: #2a2a2a;
+            border: 1px solid #3a3a3a;
+            border-radius: 4px;
+            color: #fff;
+            font-family: inherit;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .footer {
+            background: #0a0a0a;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #2a2a2a;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: #2a2a2a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #b8a8ff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: #b8a8ff;
+            color: #1a1a1a;
+        }
+        
+        .nav-link {
+            color: #999;
+            text-decoration: none;
+            transition: color 0.3s;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link.active {
+            color: #b8a8ff;
+            border-bottom-color: #b8a8ff;
+        }
+        
+        .nav-link:hover {
+            color: #b8a8ff;
+        }
+        
+        @media (max-width: 768px) {
+            .about-section {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .hero-section {
+                padding: 60px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav style="background: #0a0a0a; padding: 20px; border-bottom: 1px solid #2a2a2a; position: sticky; top: 0; z-index: 100;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+            <div style="font-weight: 700; font-size: 20px; color: #b8a8ff;">CA</div>
+            <div style="display: flex; gap: 30px; font-size: 14px;">
+                <a href="#portfolio" class="nav-link" data-section="portfolio">Portfolio</a>
+                <a href="#resume" class="nav-link" data-section="resume">Resume</a>
+                <a href="#about" class="nav-link" data-section="about">About</a>
+                <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <!-- <img src="./image/monisha.jpeg" alt="Charles Anderson" class="hero-image"> -->
+        <p style="color: #999; margin-bottom: 15px;">Hello, I'm</p>
+        <h1 style="font-size: 48px; font-weight: 700; margin-bottom: 20px;">Charles Anderson</h1>
+        <p style="color: #999; font-size: 16px;">Creative Director & Designer</p>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" style="background: #1a1a1a;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 60px 20px;">
+            <h2 class="section-title">Recent <span class="accent-color">Portfolio</span></h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="/placeholder.svg?height=250&width=280" alt="Project 1">
+                    <div class="portfolio-item-content">
+                        <h3 style="font-weight: 600; margin-bottom: 5px;">Branding Project</h3>
+                        <p style="color: #999; font-size: 13px;">Creative branding and identity design</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="/placeholder.svg?height=250&width=280" alt="Project 2">
+                    <div class="portfolio-item-content">
+                        <h3 style="font-weight: 600; margin-bottom: 5px;">Packaging Design</h3>
+                        <p style="color: #999; font-size: 13px;">Product packaging and label design</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="/placeholder.svg?height=250&width=280" alt="Project 3">
+                    <div class="portfolio-item-content">
+                        <h3 style="font-weight: 600; margin-bottom: 5px;">Poster Design</h3>
+                        <p style="color: #999; font-size: 13px;">Creative poster and print design</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="/placeholder.svg?height=250&width=280" alt="Project 4">
+                    <div class="portfolio-item-content">
+                        <h3 style="font-weight: 600; margin-bottom: 5px;">Digital Design</h3>
+                        <p style="color: #999; font-size: 13px;">Web and digital interface design</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="/placeholder.svg?height=250&width=280" alt="Project 5">
+                    <div class="portfolio-item-content">
+                        <h3 style="font-weight: 600; margin-bottom: 5px;">Illustration</h3>
+                        <p style="color: #999; font-size: 13px;">Custom illustration and artwork</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="/placeholder.svg?height=250&width=280" alt="Project 6">
+                    <div class="portfolio-item-content">
+                        <h3 style="font-weight: 600; margin-bottom: 5px;">Typography</h3>
+                        <p style="color: #999; font-size: 13px;">Font and typography design</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" style="background: #0a0a0a;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 60px 20px;">
+            <h2 class="section-title">My <span class="accent-color">Resume</span></h2>
+            <div class="resume-grid">
+                <div class="resume-item">
+                    <h3>Senior Designer</h3>
+                    <p style="margin-bottom: 10px; color: #b8a8ff; font-size: 12px;">2020 - Present</p>
+                    <p>Led design initiatives for multiple Fortune 500 companies, creating innovative solutions that increased user engagement by 45%.</p>
+                </div>
+                <div class="resume-item">
+                    <h3>Creative Director</h3>
+                    <p style="margin-bottom: 10px; color: #b8a8ff; font-size: 12px;">2018 - 2020</p>
+                    <p>Directed creative teams and managed brand identity projects for tech startups and established corporations.</p>
+                </div>
+                <div class="resume-item">
+                    <h3>UI/UX Designer</h3>
+                    <p style="margin-bottom: 10px; color: #b8a8ff; font-size: 12px;">2016 - 2018</p>
+                    <p>Designed user interfaces and experiences for mobile and web applications, focusing on user-centered design principles.</p>
+                </div>
+                <div class="resume-item">
+                    <h3>Graphic Designer</h3>
+                    <p style="margin-bottom: 10px; color: #b8a8ff; font-size: 12px;">2014 - 2016</p>
+                    <p>Created visual content for marketing campaigns, social media, and print materials for various clients.</p>
+                </div>
+                <div class="resume-item">
+                    <h3>Bachelor of Fine Arts</h3>
+                    <p style="margin-bottom: 10px; color: #b8a8ff; font-size: 12px;">2010 - 2014</p>
+                    <p>Graduated with honors from the School of Design, specializing in graphic design and digital media.</p>
+                </div>
+                <div class="resume-item">
+                    <h3>Design Certification</h3>
+                    <p style="margin-bottom: 10px; color: #b8a8ff; font-size: 12px;">2015</p>
+                    <p>Completed advanced certification in UX/UI design and user research methodologies from leading design institute.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" style="background: #1a1a1a;">
+        <div class="about-section">
+            <div class="about-image">
+                <img src="/placeholder.svg?height=400&width=400" alt="Charles Anderson">
+            </div>
+            <div class="about-content">
+                <h2>About <span class="accent-color">Me</span></h2>
+                <p>I'm a passionate designer with over 10 years of experience in creating beautiful and functional digital experiences. My journey in design started with a curiosity about how things work and evolved into a career dedicated to solving complex problems through creative thinking.</p>
+                <p>I believe that great design is not just about aesthetics, but about creating meaningful connections between users and products. I'm committed to staying at the forefront of design trends and technologies to deliver innovative solutions.</p>
+                <div class="button-group">
+                    <button class="btn btn-primary">Download CV</button>
+                    <button class="btn btn-secondary">Get In Touch</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section style="background: #0a0a0a;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 60px 20px;">
+            <h2 class="section-title">Client <span class="accent-color">Testimonial</span></h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar"></div>
+                    <div class="testimonial-content">
+                        <p>"Charles transformed our brand identity completely. His creative approach and attention to detail exceeded our expectations."</p>
+                        <div class="testimonial-author">Sarah Johnson</div>
+                        <div style="font-size: 12px; color: #666;">CEO, Tech Startup</div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar"></div>
+                    <div class="testimonial-content">
+                        <p>"Working with Charles was a game-changer for our company. His designs increased our conversion rates significantly."</p>
+                        <div class="testimonial-author">Michael Chen</div>
+                        <div style="font-size: 12px; color: #666;">Marketing Director</div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar"></div>
+                    <div class="testimonial-content">
+                        <p>"Charles is a true professional. He understood our vision and delivered exceptional results on time and within budget."</p>
+                        <div class="testimonial-author">Emma Williams</div>
+                        <div style="font-size: 12px; color: #666;">Product Manager</div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar"></div>
+                    <div class="testimonial-content">
+                        <p>"The best designer I've worked with. Charles brings creativity, strategy, and execution together perfectly."</p>
+                        <div class="testimonial-author">David Martinez</div>
+                        <div style="font-size: 12px; color: #666;">Founder</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section style="background: #1a1a1a;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 60px 20px;">
+            <h2 class="section-title">My <span class="accent-color">Services</span></h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Brand Design</h3>
+                    <p>Create compelling brand identities that resonate with your target audience and stand out in the market.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>Web Design</h3>
+                    <p>Design beautiful and functional websites that provide excellent user experiences and drive conversions.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>App Design</h3>
+                    <p>Create intuitive mobile app interfaces that users love and that solve real problems effectively.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section style="background: #0a0a0a;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 60px 20px;">
+            <h2 class="section-title">Blog on <span class="accent-color">Medium</span></h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <img src="/placeholder.svg?height=200&width=300" alt="Blog 1" class="blog-image">
+                    <div class="blog-content">
+                        <h3>The Future of Design Trends</h3>
+                        <p>Exploring emerging design trends and how they're shaping the future of digital experiences.</p>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="/placeholder.svg?height=200&width=300" alt="Blog 2" class="blog-image">
+                    <div class="blog-content">
+                        <h3>User-Centered Design Principles</h3>
+                        <p>A deep dive into the principles of user-centered design and how to apply them in your projects.</p>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="/placeholder.svg?height=200&width=300" alt="Blog 3" class="blog-image">
+                    <div class="blog-content">
+                        <h3>Mastering Color Theory</h3>
+                        <p>Understanding color psychology and how to use it effectively in your design work.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background: #1a1a1a;">
+        <div class="contact-section">
+            <h2 class="section-title">Get In <span class="accent-color">Touch</span></h2>
+            <div class="contact-grid">
+                <div>
+                    <h3 style="font-size: 20px; margin-bottom: 20px;">Contact Info</h3>
+                    <div style="margin-bottom: 30px;">
+                        <p style="color: #999; margin-bottom: 5px;">Email</p>
+                        <p style="color: #b8a8ff;">charles@example.com</p>
+                    </div>
+                    <div style="margin-bottom: 30px;">
+                        <p style="color: #999; margin-bottom: 5px;">Phone</p>
+                        <p style="color: #b8a8ff;">+1 (555) 123-4567</p>
+                    </div>
+                    <div style="margin-bottom: 30px;">
+                        <p style="color: #999; margin-bottom: 5px;">Location</p>
+                        <p style="color: #b8a8ff;">San Francisco, CA</p>
+                    </div>
+                </div>
+                <div>
+                    <form onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="social-links">
+            <a href="#" class="social-link">f</a>
+            <a href="#" class="social-link">in</a>
+            <a href="#" class="social-link">tw</a>
+            <a href="#" class="social-link">ig</a>
+        </div>
+        <p style="color: #666; font-size: 14px;">© 2025 Charles Anderson. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('[id]');
+
+        function updateActiveLink() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-section') === current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveLink);
+        updateActiveLink();
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            console.log('Form submitted:', { name, email, message });
+            alert('Thank you for your message! I will get back to you soon.');
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        // Add scroll animation for elements
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.portfolio-item, .resume-item, .service-card, .blog-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
